@@ -1,0 +1,23 @@
+﻿#redBox {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+#blueBox {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+#greenBox {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+
+#orangeBox {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+}

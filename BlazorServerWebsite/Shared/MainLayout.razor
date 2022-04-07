@@ -1,0 +1,20 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>BlazorServerWebsite</PageTitle>
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4 flex-column">
+            <p class="d-flex justify-content-center">My name is Matt and I'm a C# .NET developer. This site is my sandbox. So if you've stumbled upon it. Welcome and beware 😁</p>
+            @*<a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>*@
+        </div>
+
+        <article id="Wrapper" class="content px-4 flex-column">
+            @Body
+        </article>
+    </main>
+</div>
