@@ -1,19 +1,30 @@
 ﻿@page "/flex"
+@using Microsoft.Extensions.Logging
+@inject ILogger<Counter> logger
 <PageTitle>Flex Box Demo</PageTitle>
+<div class="d-flex flex-column align-items-center">
+    <form style="margin-bottom:20px;">
+        <select @onchange="Test" class="form-select">
+            <option>Opt 01</option>
+            <option>Opt 02</option>
+            <option>Opt 03</option>
+        </select>
+    </form>
 
-<div class="flex-column justify-content-between align-items-center">
-    <div class="p-2" id="redBox"></div>
-    <div class="p-2" id="blueBox"></div>
-    <div class="p-2" id="orangeBox"></div>
-    <div class="p-2" id="greenBox"></div>
-    <div class="p-2" id="redBox"></div>
-    <div class="p-2" id="blueBox"></div>
-    <div class="p-2" id="orangeBox"></div>
-    <div class="p-2" id="greenBox"></div>
+
+    <div style="background-color:lightcyan; height:400px; width:400px;" class="d-flex justify-content-center">
+        <div class="p-2 redBox"></div>
+        <div class="p-2 greenBox"></div>
+        <div class="p-2 blueBox"></div>
+    </div>
 </div>
+<button @onclick="Test">Test</button>
 
 
 
+@functions {
+
+}
 @code {
-
+    void Test() => logger.LogWarning("I've been clicked!");
 }

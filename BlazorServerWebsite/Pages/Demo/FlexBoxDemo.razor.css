@@ -1,23 +1,25 @@
-﻿#redBox {
-    width: 100px;
-    height: 100px;
+﻿.redBox {
+    width: 50px;
+    height: 50px;
     background-color: red;
 }
 
-#blueBox {
-    width: 100px;
-    height: 100px;
+.blueBox {
+    width: 50px;
+    height: 50px;
     background-color: blue;
 }
 
-#greenBox {
-    width: 100px;
-    height: 100px;
+.greenBox {
+    width: 50px;
+    height: 50px;
     background-color: green;
 }
 
-#orangeBox {
-    width: 100px;
-    height: 100px;
+.orangeBox {
+    width: 50px;
+    height: 50px;
     background-color: orange;
 }
+
+
