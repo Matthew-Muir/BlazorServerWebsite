@@ -1,30 +1,75 @@
 ﻿@page "/flex"
-@using Microsoft.Extensions.Logging
 @inject ILogger<Counter> logger
 <PageTitle>Flex Box Demo</PageTitle>
+
+
 <div class="d-flex flex-column align-items-center">
     <form style="margin-bottom:20px;">
-        <select @onchange="Test" class="form-select">
-            <option>Opt 01</option>
-            <option>Opt 02</option>
-            <option>Opt 03</option>
+        <select @onchange=@(args => UpdateJustify("one",args)) class="form-select">
+            <option value="">None</option>
+            <option value="start">Start</option>
+            <option value="center">Center</option>
+            <option value="end">End</option>
+        </select>
+
+        <select class="form-select" @onchange=@(args => UpdateJustify("two",args))>
+            <option value="">None</option>
+            <option value="start">Start</option>
+            <option value="center">Center</option>
+            <option value="end">End</option>
         </select>
     </form>
 
 
-    <div style="background-color:lightcyan; height:400px; width:400px;" class="d-flex justify-content-center">
+    <div style="background-color:lightcyan; height:400px; width:400px;" class="d-flex @justifyClasses @alignClasses">
         <div class="p-2 redBox"></div>
         <div class="p-2 greenBox"></div>
         <div class="p-2 blueBox"></div>
     </div>
 </div>
-<button @onclick="Test">Test</button>
 
 
-
-@functions {
-
-}
 @code {
-    void Test() => logger.LogWarning("I've been clicked!");
+    private string justifyClasses = "";
+    private string alignClasses = "";
+    void UpdateJustify(string selection, ChangeEventArgs e)
+    {
+        if (selection == "one")
+        {
+            switch (e?.Value?.ToString())
+            {
+                case "start":
+                    justifyClasses = "justify-content-start";
+                    break;
+                case "center":
+                    justifyClasses = "justify-content-center";
+                    break;
+                case "end":
+                    justifyClasses = "justify-content-end";
+                    break;
+                default:
+                    justifyClasses = "";
+                    break;
+            }
+        }
+        else
+        {
+            switch (e?.Value?.ToString())
+            {
+                case "start":
+                    alignClasses = "align-items-start";
+                    break;
+                case "center":
+                    alignClasses = "align-items-center";
+                    break;
+                case "end":
+                    alignClasses = "align-items-end";
+                    break;
+                default:
+                    alignClasses = "";
+                    break;
+            }
+        }
+
+    }
 }

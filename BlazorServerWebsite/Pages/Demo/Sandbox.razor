@@ -1,0 +1,60 @@
+﻿@page "/sandbox"
+@page "/"
+@using Microsoft.Extensions.Logging
+
+@inject ILogger<Counter> logger
+
+<p>
+    <input @bind="inputValue" />
+</p>
+
+<p>
+    <input @bind="InputValue" />
+</p>
+
+<ul>
+    <li><code>inputValue</code>: @inputValue</li>
+    <li><code>InputValue</code>: @InputValue</li>
+</ul>
+
+<form>
+    <select @onchange="updateClass">
+        <option value=""></option>
+        <option value="House">House</option>
+        <option value="Farm">Farm</option>
+    </select>
+</form>
+
+<p>@selectValue</p>
+
+<h3 class="@htmlClass">Baba Booie</h3>
+
+@code {
+    private string? htmlClass;
+
+    void updateClass(ChangeEventArgs e)
+    {
+        var temp = e?.Value?.ToString();
+
+        switch (temp)
+        {
+            case "House":
+                htmlClass = "green";
+                break;
+            case "Farm":
+                htmlClass = "blue";
+                break;
+            default:
+                htmlClass = "";
+                break;
+        }
+    }
+
+    private string? selectValue;
+
+    private string? inputValue;
+
+    private string? InputValue { get; set; }
+
+}
+
