@@ -4,7 +4,7 @@
 
 
 <div class="d-flex flex-column align-items-center">
-    <form style="margin-bottom:20px;">
+    <div class="d-flex flex-row justify-content-end" style="margin-bottom:20px; width:63%">
         <select @onchange=@(args => UpdateJustify("one",args)) class="form-select">
             <option value="">None</option>
             <option value="start">Start</option>
@@ -18,7 +18,7 @@
             <option value="center">Center</option>
             <option value="end">End</option>
         </select>
-    </form>
+    </div>
 
 
     <div style="background-color:lightcyan; height:400px; width:400px;" class="d-flex @justifyClasses @alignClasses">
