@@ -1,0 +1,18 @@
+﻿<h3>GameArea</h3>
+
+<div id="playArea">
+    <div id="ball"></div>
+</div>
+
+@code {
+
+    public Ball ball { get; set; }
+    public string loc { get; set; }
+    protected override void OnInitialized()
+    {
+      Ball ball = new Ball();
+      string loc = $"bottom:{ball.yPos}px";
+    }
+
+   
+}

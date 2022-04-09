@@ -1,0 +1,14 @@
+﻿#playArea {
+    width: 200px;
+    height: 200px;
+    background-color:palegoldenrod;
+    position:relative;
+}
+
+#ball {
+    width:25px;
+    height:25px;
+    background-color:Highlight;
+    bottom: 25px;
+    position:absolute;
+}
