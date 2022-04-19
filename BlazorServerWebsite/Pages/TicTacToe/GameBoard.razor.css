@@ -2,7 +2,7 @@
 .gameBoard {
     width:308px;
     height:308px;
-    border:4px solid pink;
+    border:4px solid black;
 }
 
 .box {
@@ -10,6 +10,12 @@
     height: 100px;
     margin:0;
     padding:0;
+}
+div.box:nth-child(odd) {
+    background-color:mediumslateblue;
+}
+div.box:nth-child(even){
+    background-color:white;
 }
 
 

@@ -1,0 +1,23 @@
+﻿@inject NavigationManager uriHelper;
+@using System.Threading;
+@if(Show)
+{
+    <div style="width:190px; margin-top:10px; margin-left:50px;" class="alert alert-secondary alert-dimissible fade show" role="alert">@ChildContent
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" @onclick="Refresh">
+        <span class="oi oi-reload" aria-hidden="true"></span>
+    </button>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public bool Show { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; } = default!;
+
+    public void Refresh()
+    {
+        uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+    }
+}

@@ -1,59 +1,51 @@
 ﻿@page "/tictactoe"
+@inject ILogger<Counter> logger
 <h3>GameBoard</h3>
 
 
 
 <div class="d-flex flex-wrap gameBoard">
-    @foreach (var item in squares)
+    @foreach (var square in state.Squares)
     {
-        <div class="@item.Color @item.Icon box d-flex justify-content-center align-items-center" style="@item.Classes"
-         @onclick="@(() => {
-        if(state.IsXTurn){
-        item.Icon = "oi oi-x";
-        state.IsXTurn = !state.IsXTurn;
-        }
-        else {
-            item.Icon = "oi oi-target";
-            state.IsXTurn = !state.IsXTurn;
-        }
-        })"></div>
+        <div class="box d-flex justify-content-center align-items-center @square.Value.IconClass"
+            @onclick="@(() => {
+                if(square.Value.Icon == -1){
+                    square.Value.Icon = _playerTurn ? 1 : 0;
+                    _playerTurn = !_playerTurn;
+                    _turnCount++;
+                    if(_turnCount > 4){
+                        var winner = state.CheckWin();
+                        if(winner != -1){
+                            switch(winner){
+                                case 1:
+                                    ModalText = "X Player WON!";
+                                    break;
+                                case 0:
+                                    ModalText = "O Player Won!";
+                                    break;
+                            }
+                            ShowAlert = true;
+                        }
+                    }
+                    if(_turnCount == 9){
+                        ShowAlert = true;
+                    }
+                }
+            })"
+        ></div>
     }
 </div>
 
 
-
+<!-- Modal -->
+<Modal Show="@ShowAlert">
+    <strong>@ModalText</strong>
+</Modal>
 @code {
     private GameState state = new GameState();
-
-
-    public class Square
-    {
-        private List<string> _classes = new List<string>();
-        public string Color { get; set; } = default!;
-        public string Classes { get { return String.Join(' ', _classes); } }
-        public string Icon { get; set; } = default!;
-        public Square()
-        {
-            _classes.Add("border:4px solid pink;");
-        }
-    }
-
-    List<Square> squares = new List<Square>();
-
-    protected override void OnInitialized()
-    {
-        for (var i = 0; i < 9; i++)
-        {
-            if (i % 2 == 0)
-            {
-                squares.Add(new Square { Color = "green" });
-
-            }
-            else
-            {
-                squares.Add(new Square { Color = "red" });
-
-            }
-        }
-    }
+    private bool _playerTurn = true;
+    private int _turnCount = 0;
+    public bool ShowAlert { get; set; } = false;
+    public void ToggleAlert() => ShowAlert = !ShowAlert;
+    public string ModalText { get; set; } = "Draw Game!";
 }
