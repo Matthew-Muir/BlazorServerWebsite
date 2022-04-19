@@ -1,0 +1,59 @@
+﻿@page "/tictactoe"
+<h3>GameBoard</h3>
+
+
+
+<div class="d-flex flex-wrap gameBoard">
+    @foreach (var item in squares)
+    {
+        <div class="@item.Color @item.Icon box d-flex justify-content-center align-items-center" style="@item.Classes"
+         @onclick="@(() => {
+        if(state.IsXTurn){
+        item.Icon = "oi oi-x";
+        state.IsXTurn = !state.IsXTurn;
+        }
+        else {
+            item.Icon = "oi oi-target";
+            state.IsXTurn = !state.IsXTurn;
+        }
+        })"></div>
+    }
+</div>
+
+
+
+@code {
+    private GameState state = new GameState();
+
+
+    public class Square
+    {
+        private List<string> _classes = new List<string>();
+        public string Color { get; set; } = default!;
+        public string Classes { get { return String.Join(' ', _classes); } }
+        public string Icon { get; set; } = default!;
+        public Square()
+        {
+            _classes.Add("border:4px solid pink;");
+        }
+    }
+
+    List<Square> squares = new List<Square>();
+
+    protected override void OnInitialized()
+    {
+        for (var i = 0; i < 9; i++)
+        {
+            if (i % 2 == 0)
+            {
+                squares.Add(new Square { Color = "green" });
+
+            }
+            else
+            {
+                squares.Add(new Square { Color = "red" });
+
+            }
+        }
+    }
+}

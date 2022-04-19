@@ -1,0 +1,27 @@
+﻿
+.gameBoard {
+    width:308px;
+    height:308px;
+    border:4px solid pink;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    margin:0;
+    padding:0;
+}
+
+
+
+.green {
+    background-color:aliceblue;
+}
+
+.red {
+    background-color:skyblue;
+}
+
+.black {
+    background-color:black;
+}
