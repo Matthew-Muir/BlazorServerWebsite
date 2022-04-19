@@ -1,13 +1,14 @@
-﻿<h3>GameArea</h3>
+﻿@page "/pong"
+
+<h3>GameArea</h3>
 
 <div id="playArea">
     <div id="ball"></div>
 </div>
 
 @code {
-
-    public Ball ball { get; set; }
-    public string loc { get; set; }
+    public Ball ball { get; set; } = default!;
+    public string loc { get; set; } = default!;
     protected override void OnInitialized()
     {
       Ball ball = new Ball();
