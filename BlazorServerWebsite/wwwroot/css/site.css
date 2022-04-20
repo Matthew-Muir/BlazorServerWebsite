@@ -1,4 +1,16 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+@font-face {
+    font-family: 'Dance';
+    src:  url('/Fonts/DancingScript-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Bebas';
+    src: url('/Fonts/BebasNeue-Regular.ttf') format('truetype');
+}
+
+
 h1:focus {
     outline: none;
 }

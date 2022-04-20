@@ -10,7 +10,6 @@
     width:180px;
     height:125px;
     background-color:white;
-    margin:10px 0px 0px 6px;
     border-radius: 5px;
     overflow:hidden;
 }
@@ -20,27 +19,11 @@ div.image img {
     height:130px;
 }
 
-@font-face {
-    font-family: 'CardName';
-    src: url('/wwwroot/Fonts/BebasNeue-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Dancing';
-    src: url('../wwwroot/Fonts/DancingScript-Medium.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'GiveAway';
-    src: url('/Give-Away.otf') format('opentype');
-}
-@font-face {
-    font-family: 'font name';
-    src: url('/content/file.eot');
-    src: local('☺'), url('/content/file.woff') format('woff'), url('/content/file.ttf') format('truetype');
-}
-
-
 
 div.card-title {
-    font-family:GiveAway;
+    font-family: 'Bebas';
+    text-align:right;
+    padding-right: 10px;
+    margin-bottom: 4px;
+
 }
