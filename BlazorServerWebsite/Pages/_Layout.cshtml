@@ -33,13 +33,6 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
-    <script>
-        async function setImageUsingStreaming(imageElementId, imageStream) {
-          const arrayBuffer = await imageStream.arrayBuffer();
-          const blob = new Blob([arrayBuffer]);
-          const url = URL.createObjectURL(blob);
-          document.getElementById(imageElementId).src = url;
-        }</script>
-        <script src="/js/test.js" type="text/javascript"></script>
+    <script src="/js/site.js" type="text/javascript"></script>
 </body>
 </html>

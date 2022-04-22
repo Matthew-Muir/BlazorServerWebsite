@@ -1,0 +1,22 @@
+﻿@page "/jsexp"
+@page "/"
+@inject ILogger<JsExp> JS
+<h3>JsExp</h3>
+
+<button class="btn btn-primary" type="button" @onclick="Func01">No Args-No Return</button>
+<br />
+<hr />
+<button class="btn btn-primary" type="button" @onclick="@(async () => await Func02())">One Arg from CS-No Return</button>
+<br />
+<hr />
+<button class="btn btn-primary" type="button" @onclick="@(async () => {await Func02("Hello from button");})">One Arg from Razor-No Return</button>
+<br />
+<hr />
+<button class="btn btn-primary" type="button" @onclick="@(async () => { F3String = await Func03();})">No Args-One Return</button>
+<h4>@F3String</h4>
+<br />
+<hr />
+<button class="btn btn-primary" type="button" @onclick="Func04">No Args-Two Return</button>
+<br />
+<hr />
+<button class="btn btn-primary" type="button" @onclick="Func05">JSON TEST</button>
