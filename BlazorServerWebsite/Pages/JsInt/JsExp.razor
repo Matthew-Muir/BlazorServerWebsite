@@ -1,6 +1,4 @@
 ﻿@page "/jsexp"
-@page "/"
-@*@inject ILogger<JsExp> Logger*@
 <h3>JsExp</h3>
 
 <button class="btn btn-primary" type="button" @onclick="Func01">No Args-No Return</button>
@@ -18,6 +16,10 @@
 <hr />
 <button class="btn btn-primary" type="button" @onclick="Func04">No Args-Return Two Prop JSON</button>
 <h4>Name: @Lola.Name, Age: @Lola.Age</h4>
+<br />
+<hr />
+<button class="btn btn-primary" type="button" @onclick="Func05">Two Args-Return Two Prop JSON</button>
+<h4>Name: @Titus.Name, Age: @Titus.Age</h4>
 <br />
 <hr />
 <button class="btn btn-primary" type="button" @onclick="Exp">EXP</button>

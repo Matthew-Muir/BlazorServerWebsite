@@ -11,7 +11,7 @@ namespace BlazorServerWebsite.Pages.JsInt
 
         public override Task SetParametersAsync(ParameterView parameters)
         {
-
+            Titus = new Dog();
             Lola = new Dog();
             return base.SetParametersAsync(parameters);
         }
@@ -47,6 +47,13 @@ namespace BlazorServerWebsite.Pages.JsInt
         {
             if (JSRuntime is not null)
                 Lola = await JSRuntime.InvokeAsync<Dog>("func04");
+        }
+
+        public Dog Titus { get; set; } = default!;
+        public async Task Func05()
+        {
+            if (JSRuntime is not null)
+                Titus = await JSRuntime.InvokeAsync<Dog>("func05", "Titus", 4);
         }
 
         public void Exp()
