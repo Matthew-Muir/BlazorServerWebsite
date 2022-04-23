@@ -6,8 +6,15 @@ namespace BlazorServerWebsite.Pages.JsInt
         [Inject]
         public IJSRuntime? JSRuntime { get; set; }
 
-        //[Inject]
-        //public ILogger? Logger { get; set; }
+        [Inject]
+        public ILogger<JsExp> Logger { get; set; }
+
+        public override Task SetParametersAsync(ParameterView parameters)
+        {
+
+            Lola = new Dog();
+            return base.SetParametersAsync(parameters);
+        }
 
         public async Task Func01()
         {
@@ -30,32 +37,21 @@ namespace BlazorServerWebsite.Pages.JsInt
             return "default";
         }
 
-        public async Task Func04()
-        {
-            if(JSRuntime is not null)
-            await JSRuntime.InvokeVoidAsync("test", new int[]{ 1,2,3});
-        }
-
-        public string JSON { get; set; } = default!;
-
         public class Dog
         {
-            public string Name { get; set; }
-            public string State { get; set; }
+            public string Name { get; set; } = default!;
+            public int Age { get; set; } = default!;
+        }
+        public Dog Lola { get; set; } = default!;
+        public async Task Func04()
+        {
+            if (JSRuntime is not null)
+                Lola = await JSRuntime.InvokeAsync<Dog>("func04");
         }
 
-        public async Task Func05()
+        public void Exp()
         {
-            //if (JSRuntime is not null)
-            //     Dog? lola = J await JSRuntime.InvokeAsync<string>("rjson");
-           
-            
-            Dog? Lola = JsonSerializer.Deserialize<Dog>(await JSRuntime.InvokeAsync<string>("rjson"));
-            
-            if (JS is not null)
-                JS.LogError($"{Lola.Name} + {Lola.State}");
-
-            //LEFT OFF HERE... Trying to Deserialize JSON return.Bookmarked a stack article.
+            Logger.LogError("Panda icecream");
         }
     }
 }

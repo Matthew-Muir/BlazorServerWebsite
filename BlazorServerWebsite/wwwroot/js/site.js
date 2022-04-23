@@ -11,17 +11,12 @@ function func03() {
     return "string from JS func03";
 }
 
-function test(num) {
-    alert(typeof num);
-    alert(num.length);
-    alert(Math.max(...num));
-}
+function func04() {
+    let dog = {
+        "Name": "Lola",
+        "Age": 12
+    }
 
-let x = {
-    "Name": "lola",
-    "State": "Obnoxios"
-}
-
-function rjson() {
-    return x;
+    alert("Received nothing...\nReturning JSON Obj with 2 Props...\nA Str & A Int");
+    return dog;
 }
