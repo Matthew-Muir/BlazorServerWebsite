@@ -14,5 +14,6 @@
 
 <hr />
 
-<InputFile accept="image/*"></InputFile>
-@*LEFT OFF HERE... Building card. Get JSON data from a file to quickly build card*@
+<InputFile OnChange="@LoadFile" accept=".json,.txt"></InputFile>
+
+<button @onclick="LogTest">EXP</button>
