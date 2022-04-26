@@ -1,3 +1,12 @@
-﻿<h5>Read txt file and output txt</h5>
-<InputFile accept=".txt"></InputFile>
+﻿@page "/"
+@page "/fileReading"
+
+<h5>Read txt file and output txt</h5>
+<InputFile OnChange="ReadText" accept=".txt"></InputFile>
 <p>@Txt</p>
+
+<br />
+<hr />
+
+<h5>Save file</h5>
+<InputFile OnChange="SaveFile" accept=".txt"></InputFile>
