@@ -10,3 +10,14 @@
 
 <h5>Save file</h5>
 <InputFile OnChange="SaveFile"></InputFile>
+
+<br />
+<hr />
+
+<h5>Read JSON</h5>
+<InputFile OnChange="ReadJson" accept=".json"></InputFile>
+@if (MyCard is not null)
+{
+    <p>Card Title: @MyCard.Title - Card Text: @MyCard.Text</p>
+
+}
