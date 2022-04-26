@@ -35,6 +35,7 @@
         {
             var path = @"C:\Users\coded\Documents\GitHub\BlazorServerWebsite\BlazorServerWebsite\Uploads\";
             var file = e.File;
+            path += e.File.Name;
             await using FileStream fs = new(path, FileMode.Create);
             await file.OpenReadStream().CopyToAsync(fs);
         }
