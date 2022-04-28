@@ -74,7 +74,11 @@
             //CardTitle = card.Title;
             //CardText = card.Text;
             //StateHasChanged();
+        }
 
+        public void OpenImage(InputFileChangeEventArgs e)
+        {
+            var file = e.File;
 
         }
 
