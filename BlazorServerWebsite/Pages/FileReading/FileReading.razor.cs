@@ -18,7 +18,10 @@
     public partial class FileReading
     {
         [Inject]
-        public ILogger<FileReading> Logger { get; set; }
+        public ILogger<FileReading>? Logger { get; set; }
+        [Inject]
+        public IJSRuntime? JS { get; set; }
+
         public class Card
         {
             public string Title { get; set; }
@@ -76,10 +79,23 @@
             //StateHasChanged();
         }
 
-        public void OpenImage(InputFileChangeEventArgs e)
+        public async Task OpenImage(InputFileChangeEventArgs e)
         {
             var file = e.File;
+            var image = await file.RequestImageFileAsync("image/jpg", 250, 250);
+            var imageStream = image.OpenReadStream();
+            var dotnetimagestream = new DotNetStreamReference(imageStream);
+            await JS.InvokeVoidAsync("setImageUsingStreaming", "ImgTarget",dotnetimagestream);
+        }
 
+        private async Task ResizeAndDisplayImageUsingStreaming(InputFileChangeEventArgs e)
+        {
+            var imageFile = e.File;
+            var resizedImage = await imageFile.RequestImageFileAsync("image/jpg", 250, 250);
+            var jsImageStream = resizedImage.OpenReadStream();
+            var dotnetImageStream = new DotNetStreamReference(jsImageStream);
+            await JS.InvokeVoidAsync("setImageUsingStreaming",
+                "showImageHere", dotnetImageStream);
         }
 
     }
