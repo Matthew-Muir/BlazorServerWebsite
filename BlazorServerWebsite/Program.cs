@@ -10,6 +10,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddLogging();
 builder.Services.AddIgniteUIBlazor();
+builder.Services.AddSingleton<DemoState>();
 
 var app = builder.Build();
 
