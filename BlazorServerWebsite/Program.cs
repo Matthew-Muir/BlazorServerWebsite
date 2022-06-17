@@ -12,6 +12,7 @@ builder.Services.AddLogging();
 builder.Services.AddIgniteUIBlazor();
 builder.Services.AddSingleton<DemoState>();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

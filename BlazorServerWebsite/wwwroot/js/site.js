@@ -31,6 +31,10 @@ function func05(name, age) {
     return dog;
 }
 
+function func06() {
+    console.log("Console log from razor page");
+}
+
 async function setImageUsingStreaming(imageElementId, imageStream) {
     const arrayBuffer = await imageStream.arrayBuffer();
     const blob = new Blob([arrayBuffer]);
