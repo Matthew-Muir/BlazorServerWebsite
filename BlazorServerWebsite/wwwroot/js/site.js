@@ -41,3 +41,23 @@ async function setImageUsingStreaming(imageElementId, imageStream) {
     const url = URL.createObjectURL(blob);
     document.getElementById(imageElementId).src = url;
 }
+
+function jsTimer(start) {
+    var timerHtml = document.getElementById('jsCounter');
+    timerHtml.innerHTML = start;
+
+    function myTimer() {
+        var timerHtml = document.getElementById('jsCounter');
+        timerHtml.innerHTML = start;
+        start--;
+        console.log(timerHtml.innerHTML);
+        if (start < 0) {
+            clearInterval(timer);
+        }
+    }
+
+    var timer = setInterval(myTimer, 1000);
+
+}
+
+
